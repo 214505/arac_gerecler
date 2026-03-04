@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Aşçılık – Kalfalık Sınav Malzemeleri</title>
+<style>
+/* CSS ŞABLONU */
+@media print { 
+    body { background: #fff; padding: 0; } 
+    .no-print { display: none !important; } 
+    .sayfa { box-shadow: none; margin: 0; width: 100%; }
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#d0d0d0;font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#222;padding:20px;display:flex;flex-direction:column;align-items:center}
+.sayfa{background:#fff;width:210mm;min-height:297mm;padding:18mm 20mm;box-shadow:0 4px 24px rgba(0,0,0,.25); position: relative;}
+
+.belge-baslik{background:#003580;color:#fff;padding:7px 12px;font-weight:bold;margin-bottom:4px;display:flex;justify-content:space-between;align-items:center}
+.sinav-turu{background:#c00;padding:2px 7px;font-size:10.5px;margin-right:10px;text-transform:uppercase}
+
+/* Yazdır Butonu */
+.yazdir-btn {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    background: rgba(255,255,255,0.1);
+    padding: 3px 8px;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+.yazdir-btn:hover { background: rgba(255,255,255,0.2); }
+
+.alan-dal-bant{background:#eef2f8;border-left:5px solid #c00;padding:6px 10px;margin-bottom:16px}
+.aciklama{background:#fffbe6;border:1px solid #f0c040;border-left:5px solid #c00;padding:9px 12px;margin-bottom:18px; line-height: 1.5;}
+.liste-baslik{font-weight:bold;color:#003580;border-bottom:2px solid #003580;margin-bottom:8px;padding-bottom:4px; margin-top: 15px;}
+.madde-listesi{list-style:none}
+.madde-listesi li{padding:8px 4px;border-bottom:1px solid #eee}
+</style>
+</head>
+<body>
+
+<div class="sayfa">
+
+    <div class="belge-baslik">
+        <div>
+            <span class="sinav-turu">KALFALIK</span> 
+            YİYECEK İÇECEK HİZMETLERİ - AŞÇILIK
+        </div>
+        
+        <div class="yazdir-btn no-print" onclick="window.print()">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+                <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+            </svg>
+            YAZDIR
+        </div>
+    </div>
+
+    <div class="alan-dal-bant">
+        Alan: <span>Yiyecek İçecek Hizmetleri</span> | Dal: <span>Aşçılık</span>
+    </div>
+
+    <div class="aciklama">
+        <strong>Sayın Aşçılık Kalfa Adayı;</strong><br>
+        Kalfalık uygulama sınavı kapsamında, aşağıda belirtilen içerikteki menüyü okulumuzda kamera karşısında hazırlamanız gerekmektedir. Hazırlık süreci ve sunum aşamaları kayıt altına alınacaktır.
+    </div>
+
+    <div class="liste-baslik">Hazırlanacak Uygulama Menüsü</div>
+    <ul class="madde-listesi">
+        <li><strong>Ana Yemek:</strong> 1 adet spesiyal ana yemek (Tavuk eti kullanılmayacaktır).</li>
+        <li><strong>Tamamlayıcı:</strong> Seçilecek 1 adet yan ürün (Pilav, makarna, meze, börek vb.).</li>
+        <li><strong>Garnitür:</strong> Seçilecek 1 adet uygun sebze garnitürü (Sebze sote, salata, cacık, buharda sebze vb.).</li>
+    </ul>
+
+    <div class="liste-baslik">Önemli Hatırlatmalar ve Kurallar</div>
+    <ul class="madde-listesi">
+        <li><strong>Porsiyon:</strong> Tüm yemekler 2 kişilik olarak hazırlanmalıdır.</li>
+        <li><strong>Ekipman:</strong> Okulumuz yalnızca fırın ve ocak temin edecektir.</li>
+        <li><strong>Malzemeler:</strong> Kullanılacak tüm araç-gereçler ve gıda malzemeleri aday tarafından temin edilecektir.</li>
+        <li><strong>Temizlik:</strong> Adayların yanlarında <strong>bulaşık makinesi tableti</strong> ve <strong>temizlik bezi</strong> getirmeleri zorunludur.</li>
+        <li><strong>Kıyafet ve Sunum:</strong> Sınava uygun iş kıyafeti ve numune kapları ile gelinmesi rica olunur.</li>
+    </ul>
+
+</div>
+
+</body>
+</html>

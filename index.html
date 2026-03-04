@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Kalfalık / Ustalık Sınav Malzemeleri</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#333;background:#f0f0f0;padding:10px}
+.smw{max-width:700px;margin:0 auto}
+.smw-uyari{background:#fffbe6;border:1px solid #f0c040;border-left:5px solid #c00;padding:10px 13px;margin-bottom:12px;font-size:12.5px;font-weight:bold;line-height:1.75}
+.smw-uyari b{color:#c00}
+.smw-giris{font-size:12.5px;margin-bottom:10px;color:#444;line-height:1.6}
+/* LV1 */
+.lv1-item{border:1px solid #9aaabf;margin-bottom:6px;border-radius:2px;overflow:hidden}
+.lv1-btn{display:flex;align-items:stretch;cursor:pointer;user-select:none;background:linear-gradient(to bottom,#003580,#002a70)}
+.lv1-btn:hover{filter:brightness(1.1)}
+.lv1-icon{width:36px;background:#c00;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.lv1-label{flex:1;padding:10px 11px;font-weight:bold;font-size:14px;color:#fff;letter-spacing:.3px}
+.lv1-arrow{width:28px;display:flex;align-items:center;justify-content:center;color:#aac;font-size:11px;transition:transform .25s}
+.lv1-btn.open .lv1-arrow{transform:rotate(180deg)}
+.lv1-body{display:none;background:#eef2f8;border-top:3px solid #c00;padding:8px}
+.lv1-body.open{display:block}
+/* LV2 */
+.lv2-item{border:1px solid #b0bdd0;margin-bottom:4px;border-radius:2px;overflow:hidden}
+.lv2-btn{display:flex;align-items:stretch;cursor:pointer;user-select:none;background:linear-gradient(to bottom,#e6ecf5,#d4dce8)}
+.lv2-btn:hover{background:linear-gradient(to bottom,#d8e2f0,#c8d4e4)}
+.lv2-btn.open{background:linear-gradient(to bottom,#1a4fa0,#003580);border-bottom:2px solid #c00}
+.lv2-btn.open .lv2-label{color:#fff}
+.lv2-btn.open .lv2-arrow{color:#fff;transform:rotate(180deg)}
+.lv2-dot{width:6px;background:#c00;flex-shrink:0}
+.lv2-label{flex:1;padding:7px 9px;font-weight:bold;font-size:12.5px;color:#003580}
+.lv2-arrow{width:24px;display:flex;align-items:center;justify-content:center;color:#666;font-size:10px;transition:transform .25s}
+.lv2-body{display:none;background:#fff;border-top:1px solid #c8d4e8;padding:8px 10px}
+.lv2-body.open{display:block}
+/* LV3 */
+.lv3-item{display:flex;align-items:center;gap:6px;padding:5px 6px;border-bottom:1px solid #eee;font-size:12.5px;color:#333}
+.lv3-item:last-child{border-bottom:none}
+.lv3-num{color:#999;font-size:11px;min-width:22px;text-align:right;flex-shrink:0}
+.lv3-dot{width:6px;height:6px;background:#003580;border-radius:50%;flex-shrink:0}
+.lv3-name{flex:1}
+a.lv3-item.lv3-link{text-decoration:none;color:inherit;background:#f0f6ff;}
+a.lv3-item.lv3-link:hover{background:#dceeff;color:#003580;}
+.lv3-badge{font-size:10.5px;color:#fff;background:#003580;padding:2px 6px;border-radius:2px;white-space:nowrap;}
+</style>
+</head>
+<body>
+<div class="smw">
+  <div class="smw-uyari">
+    <b>SAYIN SINAV ADAYIMIZ;</b><br>
+    Asagidaki listede sinavda getirilecek malzeme bilgisi gorunmuyor ve sinavda getireceginiz malzemeler konusunda bilgi sahibi degilseniz, sinavdan once <u>MUTLAKA</u> sinav komisyon uyeleri ile gorusunuz.
+  </div>
+  <p class="smw-giris">Sinav turunuzu secin, ardindan alaninizi ve dalinizi bulun.</p>
+
+  <div class="lv1-item">
+    <div class="lv1-btn" onclick="tog1(this)">
+      <div class="lv1-icon">&#x1F4CB;</div>
+      <div class="lv1-label">KALFALIK BECERİ SINAVI</div>
+      <div class="lv1-arrow">&#9660;</div>
+    </div>
+    <div class="lv1-body" id="kalfalik-body"></div>
+  </div>
+
+  <div class="lv1-item">
+    <div class="lv1-btn" onclick="tog1(this)">
+      <div class="lv1-icon">&#x1F3C6;</div>
+      <div class="lv1-label">USTALIK BECERİ SINAVI</div>
+      <div class="lv1-arrow">&#9660;</div>
+    </div>
+    <div class="lv1-body" id="ustalik-body"></div>
+  </div>
+</div>
+
+<script>
+function dalHtml(d){
+  var link=DAL_LINK[d.no];
+  if(link){
+    return '<a class="lv3-item lv3-link" href="'+link+'" target="_blank"><span class="lv3-num">'+d.no+'</span><span class="lv3-dot"></span><span class="lv3-name">'+d.ad+'</span><span class="lv3-badge">Detay &raquo;</span></a>';
+  }
+  return '<div class="lv3-item"><span class="lv3-num">'+d.no+'</span><span class="lv3-dot"></span><span class="lv3-name">'+d.ad+'</span></div>';
+}
+var DAL_LINK={
+  /* ELEKTRİK ELEKTRONİK TEKNOLOJİSİ */
+  15:"elektrik/asansor_sistemleri.html",
+  16:"elektrik/bobinaj.html",
+  20:"elektrik/endstriyel_bakim.html",
+  22:"elektrik/kamera_guvenlik_sistemleri.html",
+  23:"elektrik/haberlesme.html",
+  /* GÜZELLİK VE SAÇ BAKIM HİZMETLERİ */
+  42:"ciltbakim_makyaj.html",
+  43:"erkek_kuafor.html",
+  44:"kadin_kuafor.html",
+  /* MOBİLYA VE İÇ MEKÂN TASARIMI */
+  109:"ahsap_dograma.html",
+  110:"mobilya_tasarim.html",
+  111:"mobilya_iskelet_tasarim.html",
+  112:"mobilya_susleme.html",
+  113:"oto_doseme.html",
+  /* MOTORLU ARAÇLAR TEKNOLOJİSİ */
+  121:"pompa_enjektor_ayarlama.html",
+  122:"is_makineleri.html",
+  123:"lpg_bakim_onarim.html",
+  125:"oto_boya.html",
+  127:"oto_elektro_mekanikerlik.html",
+  128:"otomotiv_govde.html",
+  130:"motor_yenileme.html",
+  /* YİYECEK İÇECEK HİZMETLERİ */
+  179:"ascilik.html",
+  180:"firincilik.html",
+  181:"kantin.html",
+  182:"kasap.html",
+  183:"pastacilik.html",
+  184:"servis.html"
+};
+var ALANLAR=[
+{alan:"BİLİŞİM TEKNOLOJİLERİ",dallar:[{no:5,ad:"Bilgisayar Teknik Servisi"},{no:6,ad:"Yazılım Geliştirme"}]},
+{alan:"BÜRO YÖNETİMİ",dallar:[{no:7,ad:"Yönetici Sekreterliği"}]},
+{alan:"ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ",dallar:[{no:15,ad:"Asansör Sistemleri"},{no:16,ad:"Bobinaj"},{no:17,ad:"Büro Makineleri Teknik Servisi"},{no:18,ad:"Elektrik Tesisatları ve Pano Montörlüğü"},{no:19,ad:"Elektrikli Ev Aletleri Teknik Servisi"},{no:20,ad:"Endüstriyel Bakım Onarım"},{no:21,ad:"Görüntü ve Ses Sistemleri"},{no:22,ad:"Güvenlik Sistemleri"},{no:23,ad:"Haberleşme Sistemleri"},{no:24,ad:"Yüksek Gerilim Sistemleri"}]},
+{alan:"ENDÜSTRİYEL OTOMASYON TEKNOLOJİLERİ",dallar:[{no:25,ad:"Endüstriyel Kontrol"}]},
+{alan:"GIDA TEKNOLOJİSİ",dallar:[{no:30,ad:"Bitkisel Yağ Üretim"},{no:31,ad:"Çay İşleme"},{no:32,ad:"Endüstriyel Et İşleme"},{no:33,ad:"Hububat İşleme"},{no:34,ad:"Sebze ve Meyve İşleme"},{no:35,ad:"Su Ürünleri İşleme"},{no:36,ad:"Süt İşleme"},{no:37,ad:"Şekerleme ve Çikolata Üretim"},{no:38,ad:"Zeytin İşleme"}]},
+{alan:"GRAFİK VE FOTOĞRAF",dallar:[{no:39,ad:"Animasyon"},{no:40,ad:"Fotoğraf"},{no:41,ad:"Grafik"}]},
+{alan:"GÜZELLİK VE SAÇ BAKIM HİZMETLERİ",dallar:[{no:42,ad:"Cilt Bakımı ve Makyaj"},{no:43,ad:"Erkek Kuaförlüğü"},{no:44,ad:"Kadın Kuaförlüğü"}]},
+{alan:"HAYVAN YETİŞTİRİCİLİĞİ VE SAĞLIĞI",dallar:[{no:46,ad:"Arıcılık"},{no:47,ad:"Büyükbaş Hayvan Yetiştiriciliği"},{no:48,ad:"Ev ve Süs Hayvanları"},{no:49,ad:"Evcil Hayvan Kuaförlüğü"},{no:50,ad:"Kanatlı Hayvan Yetiştiriciliği"},{no:51,ad:"Küçükbaş Hayvan Yetiştiriciliği"}]},
+{alan:"İNŞAAT TEKNOLOJİSİ",dallar:[{no:52,ad:"Ahşap Yapı Sistemleri"},{no:53,ad:"Betonarme Kalıp ve Donatı Sistemleri"},{no:54,ad:"Yapı Duvar ve Sıva Sistemleri"},{no:55,ad:"Beton-Çimento ve Zemin Teknolojisi"},{no:56,ad:"Cephe Sistemleri ve PVC Doğrama"},{no:57,ad:"Çatı Sistemleri"},{no:58,ad:"Çelik Yapı Teknik Ressamlığı"},{no:59,ad:"İç Mekân Teknik Ressamlığı"},{no:60,ad:"Mimari Restorasyon"},{no:61,ad:"Mimari Yapı Teknik Ressamlığı"},{no:62,ad:"Statik Yapı Teknik Ressamlığı"},{no:63,ad:"Yapı Dekorasyonu"},{no:64,ad:"Yapı Yalıtımı"},{no:65,ad:"Yapı Yüzey Kaplama"}]},
+{alan:"KONAKLAMA VE SEYAHAT HİZMETLERİ",dallar:[{no:71,ad:"Halı Temizleme ve Bakım"},{no:72,ad:"Kuru Temizleme"},{no:73,ad:"Kat Hizmetleri"},{no:74,ad:"Operasyon"},{no:75,ad:"Ön Büro"},{no:76,ad:"Rezervasyon"}]},
+{alan:"KUYUMCULUK TEKNOLOJİSİ",dallar:[{no:77,ad:"Değerli ve Yarı Değerli Taş İşlemeciliği"},{no:78,ad:"Takı İmalatı"},{no:79,ad:"Vitrin Kuyumculuğu"}]},
+{alan:"MAKİNE TEKNOLOJİSİ",dallar:[{no:80,ad:"Anahtarcılık ve Çilingirlik"},{no:81,ad:"Bilgisayar Destekli Endüstriyel Modelleme"},{no:82,ad:"Bilgisayar Destekli Makine Ressamlığı"},{no:83,ad:"Bilgisayarlı Makine İmalatı"},{no:84,ad:"Değirmencilik"},{no:85,ad:"Endüstriyel Kalıp"},{no:86,ad:"Makine Bakım Onarım"},{no:87,ad:"Mermer İşleme"},{no:88,ad:"Saat Tamirciliği"}]},
+{alan:"MATBAA TEKNOLOJİSİ",dallar:[{no:89,ad:"Baskı Öncesi"},{no:90,ad:"Baskı Sonrası"},{no:91,ad:"Dijital Baskı"},{no:92,ad:"Flekso Baskı"},{no:93,ad:"Ofset Baskı"},{no:94,ad:"Serigrafi Baskı"},{no:95,ad:"Tampon Baskı"},{no:96,ad:"Tifdruk Baskı"}]},
+{alan:"METAL TEKNOLOJİSİ",dallar:[{no:97,ad:"Avizecilik"},{no:98,ad:"Çelik Konstrüksiyon"},{no:99,ad:"Endüstriyel Reklamcı (Tabelacı)"},{no:100,ad:"Isıl İşlem"},{no:101,ad:"Karosercilik"},{no:102,ad:"Kaynakçılık"},{no:103,ad:"Metal Doğrama"},{no:104,ad:"Metal Levha İşlemeciliği"},{no:105,ad:"Metal Yüzey Boyama"},{no:106,ad:"Sac İşleri"}]},
+{alan:"METALÜRJİ TEKNOLOJİSİ",dallar:[{no:107,ad:"Döküm"},{no:108,ad:"İzabe"}]},
+{alan:"MOBİLYA VE İÇ MEKÂN TASARIMI",dallar:[{no:109,ad:"Ahşap Doğrama Teknolojisi"},{no:110,ad:"İç Mekân ve Mobilya Teknolojisi"},{no:111,ad:"Mobilya İskeleti ve Döşemesi"},{no:112,ad:"Mobilya Süsleme Sanatları"},{no:113,ad:"Oto Döşemeciliği"}]},
+{alan:"MODA TASARIM TEKNOLOJİLERİ",dallar:[{no:114,ad:"Deri Giyim"},{no:115,ad:"Erkek Terziliği"},{no:116,ad:"Hazır Giyim Model Makineciliği"},{no:117,ad:"İç Giyim Modelistliği"},{no:118,ad:"Kadın Terziliği"},{no:119,ad:"Kesim"},{no:120,ad:"Modelistlik"}]},
+{alan:"MOTORLU ARAÇLAR TEKNOLOJİSİ",dallar:[{no:121,ad:"Dizel Motorları Yakıt Pompası ve Enjektör Ayarcılığı"},{no:122,ad:"İş Makineleri"},{no:123,ad:"Motorlu Araçlar LPG Sistemleri Bakım ve Onarımcılığı"},{no:124,ad:"Motosiklet Tamirciliği"},{no:125,ad:"Otomotiv Boya"},{no:126,ad:"Otomotiv Elektrikçiliği"},{no:127,ad:"Otomotiv Elektromekanik"},{no:128,ad:"Otomotiv Gövde"},{no:129,ad:"Otomotiv Mekanikerliği"},{no:130,ad:"Otomotiv Motor Yenileştirmeciliği"},{no:131,ad:"Ön Düzen Ayarcılığı ve Lastikçilik"}]},
+{alan:"MUHASEBE VE FİNANSMAN",dallar:[{no:132,ad:"Muhasebe"}]},
+{alan:"PAZARLAMA VE PERAKENDE",dallar:[{no:137,ad:"Emlak Komisyonculuğu"},{no:138,ad:"Satış Elemanlığı"},{no:139,ad:"Sigortacılık"}]},
+{alan:"TARIM",dallar:[{no:149,ad:"Bağcılık"},{no:150,ad:"Mantar Yetiştiriciliği"},{no:151,ad:"Meyve Yetiştiriciliği"},{no:152,ad:"Sebze Yetiştiriciliği"},{no:153,ad:"Bahçıvanlık"},{no:154,ad:"Endüstri Bitkileri Yetiştiriciliği"},{no:155,ad:"Tarla Bitkileri Yetiştiriciliği"},{no:156,ad:"Tıbbi Aromatik Bitkiler Yetiştiriciliği"},{no:157,ad:"Süs Bitkileri"},{no:158,ad:"Seracılık"},{no:159,ad:"Çay Yetiştiriciliği"},{no:160,ad:"Orman Yetiştiriciliği"}]},
+{alan:"TEKSTİL TEKNOLOJİSİ",dallar:[{no:161,ad:"Dokuma Operatörlüğü"},{no:162,ad:"Dokusuz Yüzeyler"},{no:163,ad:"Endüstriyel Çorap Örme"},{no:164,ad:"Endüstriyel Düz Örme"},{no:165,ad:"Endüstriyel Yuvarlak Örme"},{no:166,ad:"İplik Üretim Teknolojisi"},{no:167,ad:"Tekstil Baskı ve Desenciliği"},{no:168,ad:"Tekstil Bitim İşlemleri (Apre)"},{no:169,ad:"Tekstil Boyacılığı"}]},
+{alan:"TESİSAT TEKNOLOJİSİ VE İKLİMLENDİRME",dallar:[{no:170,ad:"Gaz Tesisat Sistemleri"},{no:171,ad:"Gaz Yakıcı Cihazlar ve Servis"},{no:172,ad:"Isıtma ve Sıhhi Tesisat Sistemleri"},{no:173,ad:"Kazan Yakma ve Bakımı"},{no:174,ad:"Su Arıtma Sistemleri"},{no:175,ad:"Güneş Enerjisi ve Tesisat Sistemleri"},{no:176,ad:"İklimlendirme Sistemleri"},{no:177,ad:"Soğutma Sistemleri"}]},
+{alan:"ULAŞTIRMA HİZMETLERİ",dallar:[{no:178,ad:"Lojistik"}]},
+{alan:"YİYECEK İÇECEK HİZMETLERİ",dallar:[{no:179,ad:"Aşçılık"},{no:180,ad:"Fırıncılık"},{no:181,ad:"Kantin İşletmeciliği"},{no:182,ad:"Kasaplık"},{no:183,ad:"Pasta ve Tatlı Yapımı"},{no:184,ad:"Servis"}]}
+];
+
+function buildAlanlar(hedefId){
+  var kap=document.getElementById(hedefId);
+  ALANLAR.forEach(function(a,ai){
+    var id=hedefId+'-alan-'+ai;
+    var div=document.createElement('div');
+    div.className='lv2-item';
+    var dalHTML=a.dallar.map(function(d){
+      return dalHtml(d);
+    }).join('');
+    div.innerHTML='<div class="lv2-btn" onclick="tog2(this)"><div class="lv2-dot"></div><div class="lv2-label">'+a.alan+'</div><div class="lv2-arrow">&#9660;</div></div><div class="lv2-body" id="'+id+'">'+dalHTML+'</div>';
+    kap.appendChild(div);
+  });
+}
+
+buildAlanlar('kalfalik-body');
+buildAlanlar('ustalik-body');
+
+function tog1(btn){
+  var body=btn.nextElementSibling;
+  var acik=body.classList.contains('open');
+  document.querySelectorAll('.lv1-body').forEach(function(b){b.classList.remove('open');});
+  document.querySelectorAll('.lv1-btn').forEach(function(b){b.classList.remove('open');});
+  if(!acik){body.classList.add('open');btn.classList.add('open');}
+}
+
+function tog2(btn){
+  var body=btn.nextElementSibling;
+  var acik=body.classList.contains('open');
+  var lv1body=btn.closest('.lv1-body');
+  lv1body.querySelectorAll('.lv2-body').forEach(function(b){b.classList.remove('open');});
+  lv1body.querySelectorAll('.lv2-btn').forEach(function(b){b.classList.remove('open');});
+  if(!acik){body.classList.add('open');btn.classList.add('open');}
+}
+</script>
+</body>
+</html>

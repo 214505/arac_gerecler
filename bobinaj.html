@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Bobinaj – Kalfalık Sınav Malzemeleri</title>
+<style>
+/* CSS ŞABLONU */
+@media print { 
+    body { background: #fff; padding: 0; } 
+    .no-print { display: none !important; } 
+    .sayfa { box-shadow: none; margin: 0; width: 100%; }
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#d0d0d0;font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#222;padding:20px;display:flex;flex-direction:column;align-items:center}
+.sayfa{background:#fff;width:210mm;min-height:297mm;padding:18mm 20mm;box-shadow:0 4px 24px rgba(0,0,0,.25); position: relative;}
+
+.belge-baslik{background:#003580;color:#fff;padding:7px 12px;font-weight:bold;margin-bottom:4px;display:flex;justify-content:space-between;align-items:center}
+.sinav-turu{background:#c00;padding:2px 7px;font-size:10.5px;margin-right:10px;text-transform:uppercase}
+
+/* Yazdır Butonu */
+.yazdir-btn {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    background: rgba(255,255,255,0.1);
+    padding: 3px 8px;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+.yazdir-btn:hover { background: rgba(255,255,255,0.2); }
+
+.alan-dal-bant{background:#eef2f8;border-left:5px solid #c00;padding:6px 10px;margin-bottom:16px}
+.aciklama{background:#fffbe6;border:1px solid #f0c040;border-left:5px solid #c00;padding:9px 12px;margin-bottom:18px; line-height: 1.5;}
+.liste-baslik{font-weight:bold;color:#003580;border-bottom:2px solid #003580;margin-bottom:8px;padding-bottom:4px; margin-top: 15px;}
+.madde-listesi{list-style:none; display: flex; flex-wrap: wrap;}
+.madde-listesi li{width: 50%; padding: 4px 4px; border-bottom: 1px solid #eee; display: flex; align-items: center;}
+.madde-listesi li::before { content: "•"; color: #c00; font-weight: bold; margin-right: 8px; }
+.uyari-kutusu { background: #fff0f0; border: 1px solid #ffcccc; padding: 10px; margin-bottom: 15px; border-radius: 4px; }
+.uyari-kutusu strong { color: #c00; }
+</style>
+</head>
+<body>
+
+<div class="sayfa">
+
+    <div class="belge-baslik">
+        <div>
+            <span class="sinav-turu">KALFALIK</span> 
+            ELEKTRİK ELEKTRONİK TEKNOLOJİSİ - BOBİNAJ
+        </div>
+        
+        <div class="yazdir-btn no-print" onclick="window.print()">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+                <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+            </svg>
+            YAZDIR
+        </div>
+    </div>
+
+    <div class="alan-dal-bant">
+        Alan: <span>Elektrik Elektronik Teknolojisi</span> | Dal: <span>Bobinaj</span>
+    </div>
+
+    <div class="uyari-kutusu">
+        <strong>ÖNEMLİ MOTOR UYARISI:</strong>
+        <ul>
+            <li>Saracağınız <strong>3 Fazlı Asenkron Motoru (380V)</strong> yanınızda getireceksiniz.</li>
+            <li>Motorun arıza tespitini ve sökümünü <strong>sınav esnasında</strong> yapacaksınız.</li>
+            <li>Motoru <strong>kesinlikle sökülmüş halde getirmeyiniz.</strong></li>
+            <li>Önceden bobin telini belirleyiniz.</li>
+        </ul>
+    </div>
+
+    <div class="aciklama">
+        Sınava gelirken motor sarımı için gerekli tüm malzemeleri yanınızda bulundurmanız gerekmektedir. <strong>Lehim teli ve havya kurum tarafından sağlanacaktır.</strong>
+    </div>
+
+    <div class="liste-baslik">Kişisel Koruyucu Donanımlar</div>
+    <ul class="madde-listesi">
+        <li>Koruyucu eldiven</li>
+        <li>Çelik burunlu ayakkabı</li>
+        <li>İş önlüğü</li>
+    </ul>
+
+    <div class="liste-baslik">El Aletleri ve Teknik Malzemeler</div>
+    <ul class="madde-listesi">
+        <li>Çeşitli kesici ve delici aletler</li>
+        <li>Çekiç ve Plastik çekiç</li>
+        <li>Anahtar takımı</li>
+        <li>Noktalama zımbası</li>
+        <li>Çelik uçlu çizecek</li>
+        <li>Pabuç pensesi</li>
+        <li>Ayarlı pense ve Pense</li>
+        <li>Segman pensesi</li>
+        <li>Kargaburun ve Yan keski</li>
+        <li>Rulman çektirmesi</li>
+        <li>Çelik cetvel</li>
+        <li>Pensampermetre</li>
+    </ul>
+
+    <div class="liste-baslik">Sarf Malzemeler</div>
+    <ul class="madde-listesi">
+        <li>Emaye bobin teli</li>
+        <li>Presbant</li>
+        <li>Vernik (Laklı) - 1 Litre</li>
+        <li>Tret bezi veya bandaj ipi (5m)</li>
+        <li>Makaron</li>
+    </ul>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Haberleşme Sistemleri – Kalfalık Sınav Malzemeleri</title>
+<style>
+/* CSS ŞABLONU */
+@media print { 
+    body { background: #fff; padding: 0; } 
+    .no-print { display: none !important; } 
+    .sayfa { box-shadow: none; margin: 0; width: 100%; }
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#d0d0d0;font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#222;padding:20px;display:flex;flex-direction:column;align-items:center}
+.sayfa{background:#fff;width:210mm;min-height:297mm;padding:18mm 20mm;box-shadow:0 4px 24px rgba(0,0,0,.25); position: relative;}
+
+.belge-baslik{background:#003580;color:#fff;padding:7px 12px;font-weight:bold;margin-bottom:4px;display:flex;justify-content:space-between;align-items:center}
+.sinav-turu{background:#c00;padding:2px 7px;font-size:10.5px;margin-right:10px;text-transform:uppercase}
+
+/* Yazdır Butonu */
+.yazdir-btn {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    background: rgba(255,255,255,0.1);
+    padding: 3px 8px;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+.yazdir-btn:hover { background: rgba(255,255,255,0.2); }
+
+.alan-dal-bant{background:#eef2f8;border-left:5px solid #c00;padding:6px 10px;margin-bottom:16px}
+.aciklama{background:#fffbe6;border:1px solid #f0c040;border-left:5px solid #c00;padding:9px 12px;margin-bottom:18px; line-height: 1.5;}
+.liste-baslik{font-weight:bold;color:#003580;border-bottom:2px solid #003580;margin-bottom:8px;padding-bottom:4px; margin-top: 15px;}
+.madde-listesi{list-style:none; display: flex; flex-wrap: wrap;}
+.madde-listesi li{width: 50%; padding: 4px 4px; border-bottom: 1px solid #eee; display: flex; align-items: center;}
+.madde-listesi li::before { content: "•"; color: #c00; font-weight: bold; margin-right: 8px; }
+.modul-bandi { background: #333; color: #fff; padding: 4px 10px; margin-top: 20px; font-weight: bold; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<div class="sayfa">
+
+    <div class="belge-baslik">
+        <div>
+            <span class="sinav-turu">KALFALIK</span> 
+            ELEKTRİK ELEKTRONİK TEKNOLOJİSİ - HABERLEŞME SİSTEMLERİ
+        </div>
+        
+        <div class="yazdir-btn no-print" onclick="window.print()">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+                <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+            </svg>
+            YAZDIR
+        </div>
+    </div>
+
+    <div class="alan-dal-bant">
+        Alan: <span>Elektrik Elektronik Teknolojisi</span> | Dal: <span>Haberleşme Sistemleri</span>
+    </div>
+
+    <div class="aciklama">
+        <strong>Sayın Haberleşme Sistemleri Kalfa Adayımız;</strong><br>
+        Uygulama sınavında sorumlu olduğunuz modüle (B1 veya B2) göre aşağıdaki malzeme listelerini hazırlayınız. İSG malzemeleri aday tarafından temin edilmek zorundadır.
+    </div>
+
+    <div class="modul-bandi">B1: TELEFON VE SANTRAL TESİSATI KURULUMU</div>
+    
+    <div class="liste-baslik">İSG Malzemeleri (Aday Getirecek)</div>
+    <ul class="madde-listesi">
+        <li>Koruyucu Gözlük</li>
+        <li>ESD özellikli ısıya dayanıklı eldiven</li>
+        <li>ESD Ayakkabı</li>
+        <li>ESD Önlük</li>
+    </ul>
+
+    <div class="liste-baslik">Makine, Teçhizat ve Sarf Malzemeler</div>
+    <ul class="madde-listesi">
+        <li>10 Per abone dağıtım terminal kutusu</li>
+        <li>Telefon saha dolabı ve 10'lu Krone</li>
+        <li>Krone irtibatlandırma Pensesi</li>
+        <li>Telefon ve Telefon Konsolu</li>
+        <li>En az 12 aboneli Telefon Santrali</li>
+        <li>Avometre, Pense, Yankeski</li>
+        <li>RJ-11 / RJ-45 Konnektör Pensesi</li>
+        <li>Tornavida Takımı</li>
+        <li>10 Per ve Normal Telefon Kablosu</li>
+        <li>Cat6 Ethernet Kablosu</li>
+        <li>Telefon ve Ethernet Prizi</li>
+        <li>RJ45 / RJ11 Soket ve Fişler</li>
+    </ul>
+
+    <div class="modul-bandi">B2: CEP TELEFONU ARIZA GİDERME VE TEST</div>
+    
+    <div class="liste-baslik">İSG Malzemeleri (Aday Getirecek)</div>
+    <ul class="madde-listesi">
+        <li>Koruyucu Gözlük</li>
+        <li>ESD özellikli ısıya dayanıklı eldiven</li>
+        <li>ESD Ayakkabı / ESD Önlük</li>
+        <li>ESD Bileklik</li>
+    </ul>
+
+    <div class="liste-baslik">Makine ve Teçhizat Listesi</div>
+    <ul class="madde-listesi">
+        <li>Cep telefonu</li>
+        <li>Sıcak hava üfleme istasyonu</li>
+        <li>Güç kaynağı</li>
+        <li>Büyüteç ve Çift (Cımbız)</li>
+        <li>Avometre, Pense, Yankeski</li>
+        <li>Tornavida Takımı</li>
+        <li>Lehim teli ve Mikrofon</li>
+        <li>Cep telefonu kart temizlik seti</li>
+    </ul>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Fırıncılık – Ustalık Sınav Malzemeleri</title>
+<style>
+/* CSS ŞABLONU */
+@media print { 
+    body { background: #fff; padding: 0; } 
+    .no-print { display: none !important; } 
+    .sayfa { box-shadow: none; margin: 0; width: 100%; }
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#d0d0d0;font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#222;padding:20px;display:flex;flex-direction:column;align-items:center}
+.sayfa{background:#fff;width:210mm;min-height:297mm;padding:18mm 20mm;box-shadow:0 4px 24px rgba(0,0,0,.25); position: relative;}
+
+.belge-baslik{background:#003580;color:#fff;padding:7px 12px;font-weight:bold;margin-bottom:4px;display:flex;justify-content:space-between;align-items:center}
+.sinav-turu{background:#c00;padding:2px 7px;font-size:10.5px;margin-right:10px;text-transform:uppercase}
+
+/* Yazdır Butonu */
+.yazdir-btn {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    background: rgba(255,255,255,0.1);
+    padding: 3px 8px;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+.yazdir-btn:hover { background: rgba(255,255,255,0.2); }
+
+.alan-dal-bant{background:#eef2f8;border-left:5px solid #c00;padding:6px 10px;margin-bottom:16px}
+.aciklama{background:#fffbe6;border:1px solid #f0c040;border-left:5px solid #c00;padding:9px 12px;margin-bottom:18px; line-height: 1.5;}
+.liste-baslik{font-weight:bold;color:#003580;border-bottom:2px solid #003580;margin-bottom:8px;padding-bottom:4px; margin-top: 15px;}
+.madde-listesi{list-style:none}
+.madde-listesi li{padding:8px 4px;border-bottom:1px solid #eee}
+.grup-no {font-weight: bold; color: #c00; margin-right: 5px;}
+</style>
+</head>
+<body>
+
+<div class="sayfa">
+
+    <div class="belge-baslik">
+        <div>
+            <span class="sinav-turu">USTALIK</span> 
+            YİYECEK İÇECEK HİZMETLERİ - FIRINCILIK
+        </div>
+        
+        <div class="yazdir-btn no-print" onclick="window.print()">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+                <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+            </svg>
+            YAZDIR
+        </div>
+    </div>
+
+    <div class="alan-dal-bant">
+        Alan: <span>Yiyecek İçecek Hizmetleri</span> | Dal: <span>Fırıncılık</span>
+    </div>
+
+    <div class="aciklama">
+        <strong>Sayın Fırıncılık Mesleği Usta Adayı;</strong><br>
+        Ustalık uygulama sınavı için aşağıdaki grupları inceleyiniz. <strong>Yalnızca bir (1) grup seçiniz</strong> ve sadece o grupta belirtilen ürünleri hazırlayınız. Sınav kamera kaydı altında gerçekleştirilecektir.
+    </div>
+
+    <div class="liste-baslik">Uygulama Sınavı Seçenek Grupları</div>
+    <ul class="madde-listesi">
+        <li><span class="grup-no">1. GRUP:</span> Somun ekmek ya da tava ekmeği yapımı</li>
+        <li><span class="grup-no">2. GRUP:</span> Simit çeşitleri hazırlama</li>
+        <li><span class="grup-no">3. GRUP:</span> Kıymalı, sucuklu ya da peynirli pide yapımı</li>
+    </ul>
+
+    <div class="liste-baslik">Önemli Hatırlatmalar ve Kurallar</div>
+    <ul class="madde-listesi">
+        <li><strong>Ekipman:</strong> Okulumuz yalnızca fırın ve ocak temin edecektir.</li>
+        <li><strong>Malzemeler:</strong> Kullanılacak tüm araç-gereçler, ham maddeler ve iç harçlar aday tarafından temin edilecektir.</li>
+        <li><strong>Sunum:</strong> Hazırlanan ürünler 2'şer porsiyon olacak şekilde sunuma hazırlanmalıdır.</li>
+        <li><strong>Hijyen ve Kıyafet:</strong> Adayların sınav alanına uygun iş kıyafeti (önlük, kep vb.) ve numune kapları ile gelmesi zorunludur.</li>
+        <li><strong>İş Sağlığı:</strong> Hijyen ve güvenlik kurallarına uymayan adaylar değerlendirmeye alınmayacaktır.</li>
+    </ul>
+
+</div>
+
+</body>
+</html>
